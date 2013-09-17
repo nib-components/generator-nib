@@ -1,0 +1,11 @@
+{
+  "name": "common",
+  "paths": ["../../lib"],
+  "styles": [
+    "index.css"
+  ],
+  "scripts": [
+    "index.js"
+  ],
+  "dependencies": {}
+}

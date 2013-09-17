@@ -1,0 +1,11 @@
+{
+  "name": "content",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "grunt": "~0.4.1",
+    "grunt-cli": "*",
+    "grunt-config": "git+http://ntlvmbld01:7990/scm/gt/config.git#0.2.4",
+    "grunt-component-install": "~0.1.0"
+  }
+}
