@@ -17,10 +17,6 @@ Generator.prototype.askFor = function(){
   var self = this;
 
   var prompts = [{
-    type: "confirm",
-    name: 'bundle',
-    message: 'Is this component a bundle?'
-  }, {
     name: 'description',
     message: 'Add a description (optional)'
   }, {
@@ -77,8 +73,8 @@ Generator.prototype.askForJS = function(){
 
 Generator.prototype.files = function() {
 
-  // If it's a bundle or a component
-  var path = this.opts.bundle ? "bundles/" : "lib/";
+  // Where to install it to
+  var path = "components/";
 
   // Where files will be output to
   this.destinationRoot(path + this.name);

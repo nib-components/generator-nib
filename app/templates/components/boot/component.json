@@ -1,0 +1,22 @@
+{
+  "name": "boot",
+  "paths": [
+    "../"
+  ],
+  "local": [
+
+  ],
+  "styles": [
+    "index.css"
+  ],
+  "scripts": [
+    "index.js"
+  ],
+  "dependencies": {
+    "nib-components/shims": "*",
+    "nib-components/modernizr": "*",
+    "matthewmueller/ga": "*",
+    "nib-styles/responsive-grid": "0.3.1",
+    "nib-styles/utils": "0.2.0"
+  }
+}

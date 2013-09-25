@@ -1,7 +1,7 @@
 {
   "name": "generator-nib",
   "version": "0.0.0",
-  "description": "A generator for nib front-end components",
+  "description": "A generator for front-end components",
   "keywords": [
     "yeoman-generator"
   ],
