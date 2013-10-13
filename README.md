@@ -10,6 +10,5 @@ npm install -g generator-nib
 
 ```
 yo nib
-yo nib:bundle name
 yo nib:component name
 ```
