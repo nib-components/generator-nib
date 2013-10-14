@@ -7,7 +7,9 @@
   ],
   "main": "app/index.js",
   "dependencies": {
-    "yeoman-generator": "~0.13.0"
+    "yeoman-generator": "~0.13.0",
+    "colors": "~0.6.2",
+    "grunt-mocha-phantomjs": "http://ntlvmbld01:7990/scm/gt/grunt-mocha-phantomjs.git"
   },
   "devDependencies": {
     "mocha": "~1.12.0"
