@@ -12,3 +12,5 @@ npm install -g generator-nib
 yo nib
 yo nib:component name
 ```
+
+Once npm/component dependencies have finished installing, run ```grunt```
