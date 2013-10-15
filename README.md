@@ -20,7 +20,13 @@ Once this command has added installation files, it should automagically run the 
 
 ```component install``` (inside of ```components/boot```) to get the component dependencies.
 
-Once the dependencies have been installed, you'll need to run ```grunt```. **Viola**!
+**Once the dependencies have been installed, you'll need to run .... **
+
+```
+  grunt
+```
+
+aaaaaaand **Viola**!
 
 
 ####Create a new component
