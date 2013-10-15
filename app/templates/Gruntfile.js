@@ -34,6 +34,7 @@ module.exports = function(grunt) {
     uglify: {},
     watch: {},
     bytesize: {},
+    sass: {},
 
     /**
      * Run component-build
@@ -237,9 +238,25 @@ module.exports = function(grunt) {
     config.watch[bundle + '.css'] = {
       files: [
         'components/'+bundle+'/*.css',
-        'components/'+bundle+'/lib/*.css'
+        'components/'+bundle+'/lib/*.css',
       ],
       tasks: [
+        'componentbuild:' + bundle,
+        'autoprefixer:' + bundle,
+        'notify:' + bundle
+      ]
+    };
+
+    /**
+     * SCSS changes
+     */
+    config.watch[bundle + '.scss'] = {
+      files: [
+        'components/'+bundle+'/*.scss',
+        'components/'+bundle+'/lib/*.scss'
+      ],
+      tasks: [
+        'sass:' + bundle,
         'componentbuild:' + bundle,
         'autoprefixer:' + bundle,
         'notify:' + bundle
@@ -257,6 +274,16 @@ module.exports = function(grunt) {
         'mocha_phantomjs:' + bundle,
         'notify:' + bundle
       ]
+    };
+
+    /**
+     * Compile SCSS to CSS
+     */
+    config.sass[bundle] = {
+      files: [{
+        src: 'components/'+bundle+'/*.scss',
+        dest: 'components/'+bundle+'/*.css'
+      }]
     };
 
     /**
