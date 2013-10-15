@@ -26,7 +26,7 @@ Once this command has added installation files, it should automagically run the 
   grunt
 ```
 
-aaaaaaand **Viola**!
+aaaaaaand **Hey Presto**! You're good to go.
 
 
 ####Create a new component
