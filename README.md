@@ -20,13 +20,13 @@ Once this command has added installation files, it should automagically run the 
 
 ```component install``` (inside of ```components/boot```) to get the component dependencies.
 
-**Once the dependencies have been installed, you'll need to run .... **
+**Once the dependencies have been installed, you'll need to run ....**
 
 ```
   grunt
 ```
 
-aaaaaaand **Hey Presto**! You're good to go.
+aaaaaaand **BAM**! You're good to go.
 
 
 ####Create a new component
