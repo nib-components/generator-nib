@@ -30,8 +30,16 @@ module.exports = function(grunt) {
     },
 
     componentinstall: {},
-    cssmin: {},
-    uglify: {},
+    cssmin: {
+      options: {
+        keepSpecialComments: 0
+      },
+    },
+    uglify: {
+      options: {
+        preserveComments: false
+      },
+    },
     watch: {},
     bytesize: {},
     sass: {},
@@ -92,7 +100,6 @@ module.exports = function(grunt) {
         }
       }
     }
-
   };
 
   /**
