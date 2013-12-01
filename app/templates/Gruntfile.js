@@ -238,8 +238,7 @@ module.exports = function(grunt) {
         'componentbuild:boot-dev',
         'componentbuild:boot-standalone',
         'mocha_phantomjs:' + bundle,
-        'notify:' + bundle,
-        'componentbuild:boot',
+        'notify:' + bundle
       ]
     };
 
