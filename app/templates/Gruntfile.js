@@ -3,18 +3,20 @@ var fs = require('fs');
 module.exports = function(grunt) {
 
   /**
-   * Default task. Outputs production-ready files
+   * Default task.
+   * Installs boot's dependencies if not already available
+   * Outputs production-ready files
    */
   grunt.registerTask('default', [
+    'componentinstall:boot',
     'boot'
   ]);
 
   /**
-   * Install all dependencies for all components
+   * Clean dependencies
    */
-  grunt.registerTask('install', [
-    'clean:components',
-    'componentinstall'
+  grunt.registerTask('clean', [
+    'clean:boot'
   ]);
 
   /**
@@ -25,30 +27,30 @@ module.exports = function(grunt) {
    */
   var config = {
 
-    clean: {
-      components: ['components/*/components']
-    },
-
     componentinstall: {},
+    clean: {},
+    watch: {},
+    bytesize: {},
+    sass: {},
+    componentbuild: {},
+
+    /**
+     * Remove comments from minified files
+     */
     cssmin: {
       options: {
         keepSpecialComments: 0
       }
     },
+
+    /**
+     * Remove comments from minified files
+     */
     uglify: {
       options: {
         preserveComments: false
       }
     },
-    watch: {},
-    bytesize: {},
-    sass: {},
-
-    /**
-     * Run component-build
-     * @type {Object}
-     */
-    componentbuild: {},
 
     /**
      * Automatically add vendor prefixes to all built CSS files.
@@ -109,6 +111,14 @@ module.exports = function(grunt) {
     if(fs.statSync('components/' + bundle).isFile()) return;
 
     /**
+     * Remove a components dependencies and build dir
+     */
+    config.clean[bundle] = [
+      'components/'+bundle+'/components',
+      'components/'+bundle+'/build'
+    ];
+
+    /**
      * Mocha PhantomJS runs all of our Mocha tests that require
      * a browser-runner using PhantomJS
      * @type {Object}
@@ -165,13 +175,6 @@ module.exports = function(grunt) {
         dest: './'
       }]
     };
-
-    /**
-     * Removes any folders or files to start
-     * from a clean slate.
-     * @type {Object}
-     */
-    config.clean[bundle] = 'components/'+bundle+'/build';
 
     /**
      * Run component-build
@@ -231,11 +234,12 @@ module.exports = function(grunt) {
       ],
       tasks: [
         'jshint:' + bundle,
-        'componentbuild:' + bundle,
-        'componentbuild:' + bundle + '-dev',
-        'componentbuild:' + bundle + '-standalone',
+        'componentbuild:boot',
+        'componentbuild:boot-dev',
+        'componentbuild:boot-standalone',
         'mocha_phantomjs:' + bundle,
-        'notify:' + bundle
+        'notify:' + bundle,
+        'componentbuild:boot',
       ]
     };
 
@@ -248,8 +252,11 @@ module.exports = function(grunt) {
         'components/'+bundle+'/lib/*.css',
       ],
       tasks: [
-        'componentbuild:' + bundle,
         'autoprefixer:' + bundle,
+        'componentbuild:boot',
+        'componentbuild:boot-dev',
+        'componentbuild:boot-standalone',
+        'autoprefixer:boot',
         'notify:' + bundle
       ]
     };
@@ -264,8 +271,11 @@ module.exports = function(grunt) {
       ],
       tasks: [
         'sass:' + bundle,
-        'componentbuild:' + bundle,
         'autoprefixer:' + bundle,
+        'componentbuild:boot',
+        'componentbuild:boot-dev',
+        'componentbuild:boot-standalone',
+        'autoprefixer:boot',
         'notify:' + bundle
       ]
     };
@@ -288,8 +298,11 @@ module.exports = function(grunt) {
      */
     config.sass[bundle] = {
       files: [{
-        src: 'components/'+bundle+'/*.scss',
-        dest: 'components/'+bundle+'/*.css'
+        expand: true,
+        cwd: './',
+        src: ['components/'+bundle+'/*.scss'],
+        dest: './',
+        ext: '.css'
       }]
     };
 
@@ -340,7 +353,6 @@ module.exports = function(grunt) {
       'componentbuild:' + bundle + '-dev',
       'mocha_phantomjs:' + bundle
     ]);
-
   });
 
   /**
@@ -367,5 +379,4 @@ module.exports = function(grunt) {
    * Pass the config to grunt
    */
   grunt.initConfig(config);
-
 };
