@@ -281,19 +281,6 @@ module.exports = function(grunt) {
     };
 
     /**
-     * Watch the test files
-     */
-    config.watch[bundle + '.test'] = {
-      files: [
-        'components/'+bundle+'/test/**'
-      ],
-      tasks: [
-        'mocha_phantomjs:' + bundle,
-        'notify:' + bundle
-      ]
-    };
-
-    /**
      * Compile SCSS to CSS
      */
     config.sass[bundle] = {
@@ -304,6 +291,19 @@ module.exports = function(grunt) {
         dest: './',
         ext: '.css'
       }]
+    };
+
+    /**
+     * Watch the test files
+     */
+    config.watch[bundle + '.test'] = {
+      files: [
+        'components/'+bundle+'/test/**'
+      ],
+      tasks: [
+        'mocha_phantomjs:' + bundle,
+        'notify:' + bundle
+      ]
     };
 
     /**
