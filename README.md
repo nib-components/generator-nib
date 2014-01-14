@@ -62,7 +62,7 @@ To add awesome components to your project, simply add thier repo and version to 
   }
 }
 ```
-To find these awesome components and more, checkout [Component github repo](https://github.com/component) and [component.io](http://component.io/).
+To find these awesome components and more, checkout the [Component github repo](https://github.com/component) and [component.io](http://component.io/).
 
 
 ###Create a new local component
