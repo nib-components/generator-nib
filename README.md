@@ -39,10 +39,33 @@ The following structure should've now been generated.
 │       	  	  └── ... (boot's dependencies)
 ```
 
-Once dependencies have been installed, you'll need to run ```grunt``` to build your project and **BAM**! ...You're good to go.
+Once dependencies have been installed, you'll need to run ```grunt``` to build your project and **BAM**! 
+
+...You're good to go.
+
+###Adding components
+To add awesome components to your project, simply add thier repo and version to the ```components/boot/component.json``` file and run ```component install```.
+
+```
+{
+  "name": "boot",
+  ...,
+  "dependencies": {
+    "nib-components/shims": "*",
+    "nib-components/modernizr": "*",
+    "matthewmueller/ga": "*",
+    "nib-styles/responsive-grid": "0.3.1",
+    "nib-styles/utils": "0.2.0",
+    "component/bus": "0.0.2",
+    "component/reactive": "0.14.1",
+    "component/throttle": "0.0.2"
+  }
+}
+```
+To find these awesome components and more, checkout [Component github repo](https://github.com/component) and [component.io](http://component.io/).
 
 
-###Create a new component
+###Create a new local component
 
 From your freshly populated directory (app) run:
 
