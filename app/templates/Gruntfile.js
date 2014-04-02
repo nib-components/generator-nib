@@ -146,7 +146,10 @@ module.exports = function(grunt) {
     config.cssmin[bundle] = {
       files: [{
         expand: true,
-        src: 'components/'+bundle+'/build/*.css',
+        src: [
+          'components/'+bundle+'/build/build.css',
+          'components/'+bundle+'/build/build-standalone.css'
+        ],
         dest: './'
       }]
     };
