@@ -96,7 +96,7 @@ module.exports = function(grunt) {
       complete: {
         options: {
           title: 'Build Complete',
-          message: 'All components built successfully!',
+          message: 'All components built successfully!'
         }
       }
     }
