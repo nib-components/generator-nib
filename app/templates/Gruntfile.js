@@ -248,7 +248,7 @@ module.exports = function(grunt) {
     config.watch[bundle + '.css'] = {
       files: [
         'components/'+bundle+'/*.css',
-        'components/'+bundle+'/lib/*.css',
+        'components/'+bundle+'/lib/*.css'
       ],
       tasks: [
         'componentbuild:' + bundle,
@@ -302,7 +302,7 @@ module.exports = function(grunt) {
     config.notify[bundle] = {
       options: {
         title: bundle,
-        message: 'Build completed!',
+        message: 'Build completed!'
       }
     };
 
